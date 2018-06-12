@@ -1,0 +1,69 @@
+resources:
+- name: concourse-bosh-deployment
+  type: git
+  source:
+    uri: https://github.com/s-matyukevich/concourse-bosh-deployment.git
+
+- name: bosh-deployment
+  type: git
+  source:
+    uri: https://github.com/cloudfoundry/bosh-deployment.git
+
+jobs:
+- name: deploy-bosh
+  plan:
+    - aggregate:
+      - get: concourse-bosh-deployment
+      - get: bosh-deployment
+    - task: deploy-bosh
+      config:
+        platform: linux
+        image_resource:
+          type: docker-image
+          source:
+            repository: smatyukevich/bosh-worker
+        run:
+          path: concourse-bosh-deployment/ci/tasks/deploy-bosh.sh
+        params:
+          VAULT_ADDR: {{vault-addr}}
+          VAULT_TOKEN: {{vault-token}}
+          CONCOURSE_TEAM: {{concourse_team}}
+          VCENTER_DC1_IP: {{vcenter_dc1_ip}}
+          VCENTER_DC1_USER: {{vcenter_dc1_user}}
+          VCENTER_DC1_PASSWORD: {{vcenter_dc1_password}}
+          VCENTER_DC1_DATASTORE: {{vcenter_dc1_datastore}}
+          VCENTER_DC1_CLUSTER1: {{vcenter_dc1_cluster1}}
+          BOSH_IP: {{bosh_ip}}
+          BOSH_DC1_CIDR: {{bosh_dc1_cidr}}
+          BOSH_DC1_INTERNAL_GW: {{bosh_dc1_internal_gw}}
+          BOSH_DC1_DNS: {{bosh_dc1_dns}}
+          BOSH_DC1_NETWORK_RESERVED: {{bosh_dc1_network_reserved}}
+          BOSH_DC1_VCENTER_NETWORK_NAME: {{bosh_dc1_vcenter_network_name}}
+        inputs:
+        - name: concourse-bosh-deployment
+        - name: bosh-deployment
+    - task: deploy-cloudconfig
+      config:
+        platform: linux
+        image_resource:
+          type: docker-image
+          source:
+            repository: smatyukevich/bosh-worker
+        run:
+          path: concourse-bosh-deployment/ci/tasks/deploy-bosh.sh
+        params:
+          VCENTER_DC1_CLUSTER1: {{vcenter_dc1_cluster1}}
+          VCENTER_DC2_CLUSTER1: {{vcenter_dc2_cluster1}}
+          BOSH_DC1_CIDR: {{bosh_dc1_cidr}}
+          BOSH_DC1_INTERNAL_GW: {{bosh_dc1_internal_gw}}
+          BOSH_DC1_DNS: {{bosh_dc1_dns}}
+          BOSH_DC1_NETWORK_RESERVED: {{bosh_dc1_network_reserved}}
+          BOSH_DC1_VCENTER_NETWORK_NAME: {{bosh_dc1_vcenter_network_name}}
+          BOSH_DC2_CIDR: {{bosh_dc2_cidr}}
+          BOSH_DC2_INTERNAL_GW: {{bosh_dc2_internal_gw}}
+          BOSH_DC2_DNS: {{bosh_dc2_dns}}
+          BOSH_DC2_NETWORK_RESERVED: {{bosh_dc2_network_reserved}}
+          BOSH_DC2_VCENTER_NETWORK_NAME: {{bosh_dc2_vcenter_network_name}}
+        inputs:
+        - name: concourse-bosh-deployment
+        - name: bosh-deployment

@@ -1,0 +1,56 @@
+azs:
+- name: dc1_z1
+  cloud_properties:
+    datacenters:
+    - clusters: [((vcenter_dc1_cluster1)): {}]
+- name: dc2_z1
+  cloud_properties:
+    datacenters:
+    - clusters: [((vcenter_dc2_cluster1)): {}]
+
+vm_types:
+- name: default
+  cloud_properties:
+    cpu: 2
+    ram: 1024
+    disk: 3240
+- name: large
+  cloud_properties:
+    cpu: 2
+    ram: 4096
+    disk: 30_240
+
+disk_types:
+- name: default
+  disk_size: 3000
+- name: large
+  disk_size: 50_000
+
+networks:
+- name: default_dc1
+  type: manual
+  subnets:
+  - range: ((bosh_dc1_cidr))
+    gateway: ((bosh_dc1_internal_gw))
+    azs: [dc1_z1]
+    dns: [((bosh_dc1_dns))]
+    reserved: [((bosh_dc1_network_reserved))]
+    cloud_properties:
+      name: ((bosh_dc1_vcenter_network_name))
+- name: default_dc2
+  type: manual
+  subnets:
+  - range: ((bosh_dc2_cidr))
+    gateway: ((bosh_dc2_internal_gw))
+    azs: [dc2_z1]
+    dns: [((bosh_dc2_dns))]
+    reserved: [((bosh_dc2_network_reserved))]
+    cloud_properties:
+      name: ((bosh_dc1_vcenter_network_name))
+
+compilation:
+  workers: 5
+  reuse_compilation_vms: true
+  az: dc1_z1
+  vm_type: default
+  network: default
