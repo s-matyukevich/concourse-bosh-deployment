@@ -1,7 +1,7 @@
 #!/bin/bash -e
 set -o pipefail
 
-bosh_state=$(vault read /concourse/$CONCOURSE_TEAM/bosh_state || true)
+bosh_state=$(vault read -field=value /concourse/$CONCOURSE_TEAM/bosh_state || true)
 
 if [ "$bosh_state" ]; then
   echo $bosh_state > state.json
