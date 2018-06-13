@@ -1,4 +1,5 @@
-#!/bin/bash -eo pipefail
+#!/bin/bash -e
+set -o pipefail
 
 bosh_state=$(vault read /concourse/$CONCOURSE_TEAM/bosh_state || true)
 
