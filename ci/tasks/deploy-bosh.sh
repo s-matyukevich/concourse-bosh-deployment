@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -eo pipefail
 
 bosh_state=$(vault read /concourse/$CONCOURSE_TEAM/bosh_state || true)
 
@@ -12,7 +12,6 @@ if ! bosh create-env bosh-deployment/bosh.yml \
     --state=state.json \
     --vars-store=creds.yml \
     -o bosh-deployment/vsphere/cpi.yml \
-    -o concourse-bosh-deployment/ci/opfiles/secondary-cpi.yml \
     -v director_name=$director_name \
     -v internal_cidr=$BOSH_DC1_CIDR \
     -v internal_gw=$BOSH_DC1_INTERNAL_GW \

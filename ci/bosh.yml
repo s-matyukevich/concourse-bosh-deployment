@@ -21,7 +21,7 @@ jobs:
         image_resource:
           type: docker-image
           source:
-            repository: smatyukevich/bosh-worker
+            repository: smatyukevich/docker-cfbosh
         run:
           path: concourse-bosh-deployment/ci/tasks/deploy-bosh.sh
         params:
