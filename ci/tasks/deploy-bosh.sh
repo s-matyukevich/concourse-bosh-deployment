@@ -26,7 +26,7 @@ if ! bosh create-env bosh-deployment/bosh.yml \
     -v vcenter_templates=$director_name-templates \
     -v vcenter_vms=$director_name-vms \
     -v vcenter_disks=$director_name-disks \
-    -v vcenter_cluster=((vcenter_dc1_cluster1))
+    -v vcenter_cluster=$VCENTER_DC1_CLUSTER1
 then
 	error=true
 fi

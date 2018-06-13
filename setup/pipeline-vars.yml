@@ -1,30 +1,30 @@
 concourse_team: sandbox-pcf1
 
 vault-addr: https://us07-1-cc2.oc.vmware.com:8200
-vault-token: ((vault-token))
+vault-token: ((vault_token))
 
 vcenter_dc1_ip: us07-6-vc1.oc.vmware.com
 vcenter_dc1_user: svc.us07-6_pcf@vmware.com
-vcenter_dc1_password: ((vcenter_dc1_password))
+vcenter_dc1_password: ((vcenter_pwd))
 vcenter_dc1_datastore: us07vcore6vc1c1vsan
 vcenter_dc1_cluster1: us07vcore6vc1c1
 
 vcenter_dc2_ip: us07-6-vc1.oc.vmware.com
 vcenter_dc2_user: svc.us07-6_pcf@vmware.com
-vcenter_dc2_password: ((vcenter_dc2_password))
+vcenter_dc2_password: ((vcenter_pwd))
 vcenter_dc2_datastore: us07vcore6vc1c1vsan
 vcenter_dc2_cluster1: us07vcore6vc1c1
 
-bosh_ip: 
+bosh_ip: 192.168.10.20
 
-bosh_dc1_cidr:
-bosh_dc1_internal_gw:
-bosh_dc1_dns:
-bosh_dc1_network_reserved:
-bosh_dc1_vcenter_network_name:
+bosh_dc1_cidr: 192.168.10.0/26
+bosh_dc1_internal_gw: 192.168.10.1
+bosh_dc1_dns: 10.126.168.150, 10.126.168.151
+bosh_dc1_network_reserved: 192.168.10.1-192.168.10.20,192.168.10.40-192.168.10.64
+bosh_dc1_vcenter_network_name: vxw-dvs-11-universalwire-154-sid-60010-us07-6-pcf1-infra
 
-bosh_dc2_cidr:
-bosh_dc2_internal_gw:
-bosh_dc2_dns:
-bosh_dc2_network_reserved:
-bosh_dc2_vcenter_network_name:
+bosh_dc2_cidr: 192.168.10.0/26
+bosh_dc2_internal_gw: 192.168.10.1
+bosh_dc2_dns: 10.126.168.150, 10.126.168.151
+bosh_dc2_network_reserved: 192.168.10.1-192.168.10.40
+bosh_dc2_vcenter_network_name: vxw-dvs-11-universalwire-154-sid-60010-us07-6-pcf1-infra
