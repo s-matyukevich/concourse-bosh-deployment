@@ -31,7 +31,12 @@ then
 	error=true
 fi
 
+# save state even in case of an error
 vault write /concourse/$CONCOURSE_TEAM/bosh_state value=@state.json 
+
+if [ "$error" = true ] ; then
+	exit 1
+fi
 
 options=$(yaml2json $yaml | jq -r '. | to_entries[] | "\(.key)\t\(.value)"')
 
@@ -45,6 +50,3 @@ while read -r line; do
   vault write /concourse/$CONCOURSE_TEAM/bosh_$key value=$val
 done <<< "$options"
 
-if [ "$error" = true ] ; then
-	exit 1
-fi
