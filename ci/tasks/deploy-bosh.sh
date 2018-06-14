@@ -13,10 +13,12 @@ if ! bosh create-env bosh-deployment/bosh.yml \
     --state=state.json \
     --vars-store=creds.yml \
     -o bosh-deployment/vsphere/cpi.yml \
+    -o external-ip-not-recommended.yml \
     -v director_name=$director_name \
     -v internal_cidr=$BOSH_DC1_CIDR \
     -v internal_gw=$BOSH_DC1_INTERNAL_GW \
-    -v internal_ip=$BOSH_IP \
+    -v internal_ip=$BOSH_INTERNAL_IP \
+    -v external_ip=$BOSH_EXTERNAL_IP \
     -v network_name=$BOSH_DC1_VCENTER_NETWORK_NAME \
     -v vcenter_dc=$VCENTER_DC1_DATACENTER \
     -v vcenter_ds=$VCENTER_DC1_DATASTORE \

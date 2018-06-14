@@ -34,7 +34,8 @@ jobs:
           VCENTER_DC1_DATACENTER: {{vcenter_dc1_datacenter}}
           VCENTER_DC1_DATASTORE: {{vcenter_dc1_datastore}}
           VCENTER_DC1_CLUSTER1: {{vcenter_dc1_cluster1}}
-          BOSH_IP: {{bosh_ip}}
+          BOSH_INTERNAL_IP: {{bosh_internal_ip}}
+          BOSH_EXTERNAL_IP: {{bosh_external_ip}}
           BOSH_DC1_CIDR: {{bosh_dc1_cidr}}
           BOSH_DC1_INTERNAL_GW: {{bosh_dc1_internal_gw}}
           BOSH_DC1_DNS: {{bosh_dc1_dns}}
