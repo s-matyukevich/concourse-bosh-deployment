@@ -17,7 +17,8 @@ vcenter_dc2_datacenter: us07vcore6vc1
 vcenter_dc2_datastore: us07vcore6vc1c1vsan
 vcenter_dc2_cluster1: us07vcore6vc1c1
 
-bosh_ip: 192.168.10.20
+bosh_internal_ip: 192.168.10.20
+bosh_external_ip: 10.127.190.7
 
 bosh_dc1_cidr: 192.168.10.0/26
 bosh_dc1_internal_gw: 192.168.10.1
