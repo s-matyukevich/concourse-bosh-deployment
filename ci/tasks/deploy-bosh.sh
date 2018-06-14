@@ -18,7 +18,7 @@ if ! bosh create-env bosh-deployment/bosh.yml \
     -v internal_gw=$BOSH_DC1_INTERNAL_GW \
     -v internal_ip=$BOSH_IP \
     -v network_name="BOSH Network" \
-    -v vcenter_dc=dc1 \
+    -v vcenter_dc=$VCENTER_DC1_DATACENTER \
     -v vcenter_ds=$VCENTER_DC1_DATASTORE \
     -v vcenter_ip=$VCENTER_DC1_IP \
     -v vcenter_user=$VCENTER_DC1_USER \

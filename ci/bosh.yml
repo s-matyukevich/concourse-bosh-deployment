@@ -31,6 +31,7 @@ jobs:
           VCENTER_DC1_IP: {{vcenter_dc1_ip}}
           VCENTER_DC1_USER: {{vcenter_dc1_user}}
           VCENTER_DC1_PASSWORD: {{vcenter_dc1_password}}
+          VCENTER_DC1_DATACENTER: {{vcenter_dc1_datacenter}}
           VCENTER_DC1_DATASTORE: {{vcenter_dc1_datastore}}
           VCENTER_DC1_CLUSTER1: {{vcenter_dc1_cluster1}}
           BOSH_IP: {{bosh_ip}}

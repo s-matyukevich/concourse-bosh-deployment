@@ -6,12 +6,14 @@ vault-token: ((vault_token))
 vcenter_dc1_ip: us07-6-vc1.oc.vmware.com
 vcenter_dc1_user: svc.us07-6_pcf@vmware.com
 vcenter_dc1_password: ((vcenter_pwd))
+vcenter_dc1_datacenter: us07vcore6vc1
 vcenter_dc1_datastore: us07vcore6vc1c1vsan
 vcenter_dc1_cluster1: us07vcore6vc1c1
 
 vcenter_dc2_ip: us07-6-vc1.oc.vmware.com
 vcenter_dc2_user: svc.us07-6_pcf@vmware.com
 vcenter_dc2_password: ((vcenter_pwd))
+vcenter_dc2_datacenter: us07vcore6vc1
 vcenter_dc2_datastore: us07vcore6vc1c1vsan
 vcenter_dc2_cluster1: us07vcore6vc1c1
 
