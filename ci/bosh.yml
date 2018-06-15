@@ -78,6 +78,7 @@ jobs:
           VAULT_TOKEN: {{vault-token}}
           CONCOURSE_TEAM: {{concourse_team}}
           BOSH_EXTERNAL_IP: {{bosh_external_ip}}
+          VM_PASSWORD: {{vm_password}}
 
           VCENTER_DC1_IP: {{vcenter_dc1_ip}}
           VCENTER_DC1_USER: {{vcenter_dc1_user}}
