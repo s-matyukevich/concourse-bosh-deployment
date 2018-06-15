@@ -1,6 +1,8 @@
 #!/bin/bash -e
 set -o pipefail
 
+exit 0
+
 bosh_state=$(vault read -field=value /concourse/$CONCOURSE_TEAM/bosh_state || true)
 bosh_creds=$(vault read -field=value /concourse/$CONCOURSE_TEAM/bosh_creds || true)
 

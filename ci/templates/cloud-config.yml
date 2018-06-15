@@ -1,9 +1,11 @@
 azs:
 - name: dc1_z1
+  cpi: dc1 
   cloud_properties:
     datacenters:
     - clusters: [((vcenter_dc1_cluster1)): {}]
 - name: dc2_z1
+  cpi: dc2 
   cloud_properties:
     datacenters:
     - clusters: [((vcenter_dc2_cluster1)): {}]
