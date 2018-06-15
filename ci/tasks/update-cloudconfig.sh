@@ -14,7 +14,6 @@ vault write /concourse/$CONCOURSE_TEAM/bosh_client_secret value=$BOSH_CLIENT_SEC
 vault write /concourse/$CONCOURSE_TEAM/bosh_ca_cert value="$BOSH_CA_CERT"
 vault write /concourse/$CONCOURSE_TEAM/bosh_environment value=$BOSH_ENVIRONMENT 
 
-exit 0
 bosh interpolate concourse-bosh-deployment/ci/templates/cloud-config.yml \
   -v vcenter_dc1_cluster1=$BOSH_DC1_CIDR \
   -v vcenter_dc2_cluster1=$BOSH_DC2_CIDR \
