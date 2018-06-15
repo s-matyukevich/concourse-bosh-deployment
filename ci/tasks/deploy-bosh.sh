@@ -21,7 +21,7 @@ if ! bosh create-env bosh-deployment/bosh.yml \
     -o bosh-deployment/uaa.yml \
     -o concourse-bosh-deployment/ci/opfiles/external-ip.yml \
     -o concourse-bosh-deployment/ci/opfiles/set_vm_password.yml \
-    -v vm_password=$vm_password \
+    -v vm_password=$VM_PASSWORD \
     -v director_name=$director_name \
     -v internal_cidr=$BOSH_CIDR \
     -v internal_gw=$BOSH_INTERNAL_GW \
