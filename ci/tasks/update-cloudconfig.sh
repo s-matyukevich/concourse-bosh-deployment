@@ -15,7 +15,6 @@ vault write /concourse/$CONCOURSE_TEAM/bosh_ca_cert value="$BOSH_CA_CERT"
 vault write /concourse/$CONCOURSE_TEAM/bosh_environment value=$BOSH_ENVIRONMENT 
 
 exit 0
-
 bosh interpolate concourse-bosh-deployment/ci/templates/cloud-config.yml \
   -v vcenter_dc1_cluster1=$BOSH_DC1_CIDR \
   -v vcenter_dc2_cluster1=$BOSH_DC2_CIDR \
@@ -30,5 +29,23 @@ bosh interpolate concourse-bosh-deployment/ci/templates/cloud-config.yml \
   -v bosh_dc2_network_reserved=$BOSH_DC2_NETWORK_RESERVED \
   -v bosh_dc1_vcenter_network_name=$BOSH_DC1_VCENTER_NETWORK_NAME > cc.yml
 
+director_name=bosh-$CONCOURSE_TEAM
+
+bosh interpolate concourse-bosh-deployment/ci/templates/cpi-config.yml \
+  -v director_name=$director_name \
+  -v vcenter_dc1_ip=$VCENTER_DC1_IP \
+  -v vcenter_dc1_user=$VCENTER_DC1_USER \
+  -v vcenter_dc1_password=$VCENTER_DC1_PASSWORD \
+  -v vcenter_dc1_cluster1=$VCENTER_DC1_CLUSTER1 \
+  -v vcenter_dc1_datastore=$VCENTER_DC1_DATASTORE \
+  -v vcenter_dc1_datacenter=$VCENTER_DC1_DATACENTER \
+  -v vcenter_dc2_ip=$VCENTER_DC2_IP \
+  -v vcenter_dc2_user=$VCENTER_DC2_USER \
+  -v vcenter_dc2_password=$VCENTER_DC2_PASSWORD \
+  -v vcenter_dc2_cluster1=$VCENTER_DC2_CLUSTER1 \
+  -v vcenter_dc2_datastore=$VCENTER_DC2_DATASTORE \
+  -v vcenter_dc2_datacenter=$VCENTER_DC2_DATACENTER > cpi.yml
+
+bosh -n update-cpi-config cpi.yml
 bosh -n update-cloud-config cc.yml
 

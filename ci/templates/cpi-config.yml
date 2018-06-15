@@ -15,18 +15,21 @@ cpis:
       template_folder: ((director_name))-templates
       vm_folder: ((director_name))-vms
 
+
 - name: dc2 
   type: vsphere
   properties:
-    host: ((vcenter_ip))
-    user: ((vcenter_user))
-    password: ((vcenter_password))
+    host: ((vcenter_dc2_ip))
+    user: ((vcenter_dc2_user))
+    password: ((vcenter_dc2_password))
     datacenters:
     - clusters:
-      - { ((vcenter_cluster)): {}}
-      datastore_pattern: ((vcenter_datastores_pattern))
-      disk_path: ((folder_to_put_disks_in))
-      name: ((vcenter_datacenter))
-      persistent_datastore_pattern: ((vcenter_persistent_datastores_pattern))
-      template_folder: ((folder_to_put_templates_in))
-      vm_folder: ((folder_to_put_vms_in))
+      - { ((vcenter_dc2_cluster1)): {}}
+      datastore_pattern: ((vcenter_dc2_datastore))
+      name: ((vcenter_dc2_datacenter))
+      persistent_datastore_pattern: ((vcenter_dc2_datastore))
+      disk_path: ((director_name))-disks2
+      template_folder: ((director_name))-templates2
+      vm_folder: ((director_name))-vms2
+
+
