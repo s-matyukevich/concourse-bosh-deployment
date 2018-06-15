@@ -16,7 +16,7 @@ vault write /concourse/$CONCOURSE_TEAM/bosh_environment value=$BOSH_ENVIRONMENT
 
 bosh interpolate concourse-bosh-deployment/ci/templates/cloud-config.yml \
   -v vcenter_dc1_cluster1=$VCENTER_DC1_CLUSTER1 \
-  -v vcenter_dc2_cluster1=$BOSH_DC2_CIDR \
+  -v vcenter_dc2_cluster1=$VCENTER_DC2_CLUSTER1 \
   -v bosh_cidr=$BOSH_CIDR \
   -v bosh_internal_gw=$BOSH_INTERNAL_GW \
   -v bosh_dns="$BOSH_DNS" \
