@@ -9,11 +9,11 @@ cpis:
     - clusters:
       - { ((vcenter_dc1_cluster1)): {}}
       datastore_pattern: ((vcenter_dc1_datastore))
-      disk_path: ((folder_to_put_disks_in))
-      name: ((vcenter_datacenter))
-      persistent_datastore_pattern: ((vcenter_persistent_datastores_pattern))
-      template_folder: ((folder_to_put_templates_in))
-      vm_folder: ((folder_to_put_vms_in))
+      name: ((vcenter_dc1_datacenter))
+      persistent_datastore_pattern: ((vcenter_dc1_datastore))
+      disk_path: ((director_name))-disks
+      template_folder: ((director_name))-templates
+      vm_folder: ((director_name))-vms
 
 - name: dc2 
   type: vsphere
