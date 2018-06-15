@@ -21,19 +21,19 @@ if ! bosh create-env bosh-deployment/bosh.yml \
     -o bosh-deployment/uaa.yml \
     -o concourse-bosh-deployment/ci/opfiles/external-ip.yml \
     -v director_name=$director_name \
-    -v internal_cidr=$BOSH_DC1_CIDR \
-    -v internal_gw=$BOSH_DC1_INTERNAL_GW \
+    -v internal_cidr=$BOSH_CIDR \
+    -v internal_gw=$BOSH_INTERNAL_GW \
     -v internal_ip=$BOSH_INTERNAL_IP \
     -v external_ip=$BOSH_EXTERNAL_IP \
-    -v network_name=$BOSH_DC1_VCENTER_NETWORK_NAME \
+    -v network_name=$BOSH_VCENTER_NETWORK_NAME \
     -v vcenter_dc=$VCENTER_DC1_DATACENTER \
     -v vcenter_ds=$VCENTER_DC1_DATASTORE \
     -v vcenter_ip=$VCENTER_DC1_IP \
     -v vcenter_user=$VCENTER_DC1_USER \
     -v vcenter_password=$VCENTER_DC1_PASSWORD \
-    -v vcenter_templates=$director_name-templates \
-    -v vcenter_vms=$director_name-vms \
-    -v vcenter_disks=$director_name-disks \
+    -v vcenter_templates=$director_name-templates1 \
+    -v vcenter_vms=$director_name-vms1 \
+    -v vcenter_disks=$director_name-disks1 \
     -v vcenter_cluster=$VCENTER_DC1_CLUSTER1
 then
 	error=true

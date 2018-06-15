@@ -46,11 +46,11 @@ jobs:
           VCENTER_DC1_CLUSTER1: {{vcenter_dc1_cluster1}}
           BOSH_INTERNAL_IP: {{bosh_internal_ip}}
           BOSH_EXTERNAL_IP: {{bosh_external_ip}}
-          BOSH_DC1_CIDR: {{bosh_dc1_cidr}}
-          BOSH_DC1_INTERNAL_GW: {{bosh_dc1_internal_gw}}
-          BOSH_DC1_DNS: {{bosh_dc1_dns}}
-          BOSH_DC1_NETWORK_RESERVED: {{bosh_dc1_network_reserved}}
-          BOSH_DC1_VCENTER_NETWORK_NAME: {{bosh_dc1_vcenter_network_name}}
+          BOSH_CIDR: {{bosh_cidr}}
+          BOSH_INTERNAL_GW: {{bosh_internal_gw}}
+          BOSH_DNS: {{bosh_dns}}
+          BOSH_NETWORK_RESERVED: {{bosh_network_reserved}}
+          BOSH_VCENTER_NETWORK_NAME: {{bosh_vcenter_network_name}}
         inputs:
         - name: concourse-bosh-deployment
         - name: bosh-deployment
@@ -93,17 +93,11 @@ jobs:
           VCENTER_DC2_DATASTORE: {{vcenter_dc2_datastore}}
           VCENTER_DC2_CLUSTER1: {{vcenter_dc2_cluster1}}
 
-          BOSH_DC1_CIDR: {{bosh_dc1_cidr}}
-          BOSH_DC1_INTERNAL_GW: {{bosh_dc1_internal_gw}}
-          BOSH_DC1_DNS: {{bosh_dc1_dns}}
-          BOSH_DC1_NETWORK_RESERVED: {{bosh_dc1_network_reserved}}
-          BOSH_DC1_VCENTER_NETWORK_NAME: {{bosh_dc1_vcenter_network_name}}
-
-          BOSH_DC2_CIDR: {{bosh_dc2_cidr}}
-          BOSH_DC2_INTERNAL_GW: {{bosh_dc2_internal_gw}}
-          BOSH_DC2_DNS: {{bosh_dc2_dns}}
-          BOSH_DC2_NETWORK_RESERVED: {{bosh_dc2_network_reserved}}
-          BOSH_DC2_VCENTER_NETWORK_NAME: {{bosh_dc2_vcenter_network_name}}
+          BOSH_CIDR: {{bosh_cidr}}
+          BOSH_INTERNAL_GW: {{bosh_internal_gw}}
+          BOSH_DNS: {{bosh_dns}}
+          BOSH_NETWORK_RESERVED: {{bosh_network_reserved}}
+          BOSH_VCENTER_NETWORK_NAME: {{bosh_vcenter_network_name}}
         inputs:
         - name: concourse-bosh-deployment
         - name: bosh-deployment

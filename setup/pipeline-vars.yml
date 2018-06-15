@@ -20,14 +20,9 @@ vcenter_dc2_cluster1: us07vcore6vc1c1
 bosh_internal_ip: 192.168.10.20
 bosh_external_ip: 10.126.190.7
 
-bosh_dc1_cidr: 192.168.10.0/26
-bosh_dc1_internal_gw: 192.168.10.1
-bosh_dc1_dns: 10.126.168.150, 10.126.168.151
-bosh_dc1_network_reserved: 192.168.10.1-192.168.10.20,192.168.10.40-192.168.10.64
-bosh_dc1_vcenter_network_name: vxw-dvs-11-universalwire-154-sid-60010-us07-6-pcf1-infra
+bosh_cidr: 192.168.10.0/26
+bosh_internal_gw: 192.168.10.1
+bosh_dns: 10.126.168.150, 10.126.168.151
+bosh_network_reserved: 192.168.10.1-192.168.10.20
+bosh_vcenter_network_name: vxw-dvs-11-universalwire-154-sid-60010-us07-6-pcf1-infra
 
-bosh_dc2_cidr: 192.168.10.0/26
-bosh_dc2_internal_gw: 192.168.10.1
-bosh_dc2_dns: 10.126.168.150, 10.126.168.151
-bosh_dc2_network_reserved: 192.168.10.1-192.168.10.40
-bosh_dc2_vcenter_network_name: vxw-dvs-11-universalwire-154-sid-60010-us07-6-pcf1-infra

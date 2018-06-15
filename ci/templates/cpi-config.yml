@@ -11,9 +11,9 @@ cpis:
       datastore_pattern: ((vcenter_dc1_datastore))
       name: ((vcenter_dc1_datacenter))
       persistent_datastore_pattern: ((vcenter_dc1_datastore))
-      disk_path: ((director_name))-disks
-      template_folder: ((director_name))-templates
-      vm_folder: ((director_name))-vms
+      disk_path: ((director_name))-disks1
+      template_folder: ((director_name))-templates1
+      vm_folder: ((director_name))-vms1
 
 
 - name: dc2 
