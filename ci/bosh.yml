@@ -9,6 +9,15 @@ resources:
   source:
     uri: https://github.com/cloudfoundry/bosh-deployment.git
 
+- name: bosh-version
+  type: concourse-version-resource
+  
+resource_types:
+- name: concourse-version-resource
+  type: docker-image
+  source:
+    repository: meteogroup/concourse-version-resource
+
 jobs:
 - name: deploy-bosh
   plan:
@@ -44,7 +53,17 @@ jobs:
         inputs:
         - name: concourse-bosh-deployment
         - name: bosh-deployment
-    - task: deploy-cloudconfig
+    - put: bosh-version
+
+- name: update-cloudconfig 
+  plan:
+    - aggregate:
+      - get: bosh-version
+        trigger: true
+        passed: [deploy-bosh]
+      - get: concourse-bosh-deployment
+      - get: bosh-deployment
+    - task: update-cloudconfig
       config:
         platform: linux
         image_resource:
@@ -52,7 +71,7 @@ jobs:
           source:
             repository: smatyukevich/bosh-worker
         run:
-          path: concourse-bosh-deployment/ci/tasks/deploy-bosh.sh
+          path: concourse-bosh-deployment/ci/tasks/update-cloudconfig.sh
         params:
           VCENTER_DC1_CLUSTER1: {{vcenter_dc1_cluster1}}
           VCENTER_DC2_CLUSTER1: {{vcenter_dc2_cluster1}}

@@ -18,6 +18,7 @@ if ! bosh create-env bosh-deployment/bosh.yml \
     --state=state.json \
     --vars-store=creds.yml \
     -o bosh-deployment/vsphere/cpi.yml \
+    -o bosh-deployment/uaa.yml \
     -o concourse-bosh-deployment/ci/opfiles/external-ip.yml \
     -v director_name=$director_name \
     -v internal_cidr=$BOSH_DC1_CIDR \

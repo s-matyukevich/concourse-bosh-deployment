@@ -1,5 +1,13 @@
 #!/bin/bash -e
 
+vault read -field=value /concourse/$CONCOURSE_TEAM/bosh_creds > creds.yml
+yaml2json < creds.yml > creds.json
+
+export BOSH_CLIENT=
+export BOSH_CLIENT_SECRET=
+export BOSH_CA_CERT=
+export BOSH_ENVIRONMENT=
+
 bosh interpolate concourse-bosh-deployment/ci/templates/cloud-config.yml \
   -v vcenter_dc1_cluster1=$BOSH_DC1_CIDR \
   -v vcenter_dc2_cluster1=$BOSH_DC2_CIDR \
