@@ -70,12 +70,13 @@ jobs:
         image_resource:
           type: docker-image
           source:
-            repository: smatyukevich/bosh-worker
+            repository: smatyukevich/docker-cfbosh
         run:
           path: concourse-bosh-deployment/ci/tasks/update-cloudconfig.sh
         params:
           VAULT_ADDR: {{vault-addr}}
           VAULT_TOKEN: {{vault-token}}
+          CONCOURSE_TEAM: {{concourse_team}}
 
           VCENTER_DC1_IP: {{vcenter_dc1_ip}}
           VCENTER_DC1_USER: {{vcenter_dc1_user}}

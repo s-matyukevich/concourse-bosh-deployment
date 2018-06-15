@@ -11,7 +11,7 @@ export BOSH_ENVIRONMENT=$BOSH_EXTERNAL_IP
 #save creds for next pipelines
 vault write /concourse/$CONCOURSE_TEAM/bosh_client value=$BOSH_CLIENT 
 vault write /concourse/$CONCOURSE_TEAM/bosh_client_secret value=$BOSH_CLIENT_SECRET 
-vault write /concourse/$CONCOURSE_TEAM/bosh_ca_cert value=$BOSH_CA_CERT 
+vault write /concourse/$CONCOURSE_TEAM/bosh_ca_cert value="$BOSH_CA_CERT"
 vault write /concourse/$CONCOURSE_TEAM/bosh_environment value=$BOSH_ENVIRONMENT 
 
 exit 0
