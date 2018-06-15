@@ -2,9 +2,14 @@
 set -o pipefail
 
 bosh_state=$(vault read -field=value /concourse/$CONCOURSE_TEAM/bosh_state || true)
+bosh_creds=$(vault read -field=value /concourse/$CONCOURSE_TEAM/bosh_creds || true)
 
 if [ "$bosh_state" ]; then
   echo $bosh_state > state.json
+fi
+
+if [ "$bosh_creds" ]; then
+  echo $bosh_creds > creds.yml 
 fi
 
 error=false
@@ -35,20 +40,9 @@ fi
 
 # save state even in case of an error
 vault write /concourse/$CONCOURSE_TEAM/bosh_state value=@state.json 
+vault write /concourse/$CONCOURSE_TEAM/bosh_creds value=@creds.yml 
 
 if [ "$error" = true ] ; then
 	exit 1
 fi
-
-options=$(yaml2json $yaml | jq -r '. | to_entries[] | "\(.key)\t\(.value)"')
-
-while read -r line; do
-  array=($line)
-  key=${array[0]}
-  val=${array[1]}
-  if [ "$val" == "null" ]; then
-    val=""
-  fi  
-  vault write /concourse/$CONCOURSE_TEAM/bosh_$key value=$val
-done <<< "$options"
 
