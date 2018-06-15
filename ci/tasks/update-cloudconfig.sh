@@ -24,7 +24,7 @@ bosh interpolate concourse-bosh-deployment/ci/templates/cloud-config.yml \
   -v bosh_dc1_vcenter_network_name=$BOSH_DC1_VCENTER_NETWORK_NAME \
   -v bosh_dc2_cidr=$BOSH_DC2_CIDR \
   -v bosh_dc2_internal_gw=$BOSH_DC2_INTERNAL_GW \
-  -v bosh_dc2_dns=$BOSH_DC2_DNS \
+  -v bosh_dc2_dns="$BOSH_DC2_DNS" \
   -v bosh_dc2_network_reserved="$BOSH_DC2_NETWORK_RESERVED" \
   -v bosh_dc1_vcenter_network_name=$BOSH_DC1_VCENTER_NETWORK_NAME > cc.yml
 
