@@ -5,11 +5,11 @@ bosh_state=$(vault read -field=value /concourse/$CONCOURSE_TEAM/bosh_state || tr
 bosh_creds=$(vault read -field=value /concourse/$CONCOURSE_TEAM/bosh_creds || true)
 
 if [ "$bosh_state" ]; then
-  echo $bosh_state > state.json
+  echo "$bosh_state" > state.json
 fi
 
 if [ "$bosh_creds" ]; then
-  echo $bosh_creds > creds.yml 
+  echo "$bosh_creds" > creds.yml 
 fi
 
 error=false
