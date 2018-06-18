@@ -14,7 +14,7 @@ fi
 
 error=false
 director_name=bosh-$CONCOURSE_TEAM
-bosh_vm_password=$(mkpasswd -s -m sha-512 <<< "${VM_PASSWORD}\n")
+bosh_vm_password=$(mkpasswd -s -m sha-512 <<< "${VM_PASSWORD}")
 if ! bosh create-env bosh-deployment/bosh.yml \
     --state=state.json \
     --vars-store=creds.yml \
@@ -50,3 +50,5 @@ if [ "$error" = true ] ; then
 	exit 1
 fi
 
+# debug
+exit 1
