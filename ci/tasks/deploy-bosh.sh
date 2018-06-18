@@ -14,6 +14,7 @@ fi
 
 error=false
 director_name=bosh-$CONCOURSE_TEAM
+bosh_vm_password=$(mkpasswd -s -m sha-512 <<< "${VM_PASSWORD}\n")
 if ! bosh create-env bosh-deployment/bosh.yml \
     --state=state.json \
     --vars-store=creds.yml \
@@ -21,7 +22,7 @@ if ! bosh create-env bosh-deployment/bosh.yml \
     -o bosh-deployment/uaa.yml \
     -o concourse-bosh-deployment/ci/opfiles/external-ip.yml \
     -o concourse-bosh-deployment/ci/opfiles/set_vm_password.yml \
-    -v vm_password=$VM_PASSWORD \
+    -v vm_password=$bosh_vm_password \
     -v director_name=$director_name \
     -v internal_cidr=$BOSH_CIDR \
     -v internal_gw=$BOSH_INTERNAL_GW \
