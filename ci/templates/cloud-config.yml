@@ -14,8 +14,8 @@ vm_types:
 - name: default
   cloud_properties:
     cpu: 2
-    ram: 1024
-    disk: 3240
+    ram: 2046
+    disk: 10000 
 - name: large
   cloud_properties:
     cpu: 2
@@ -24,7 +24,7 @@ vm_types:
 
 disk_types:
 - name: default
-  disk_size: 3000
+  disk_size: 10_000
 - name: large
   disk_size: 50_000
 
@@ -44,5 +44,5 @@ compilation:
   workers: 5
   reuse_compilation_vms: true
   az: dc1_z1
-  vm_type: default
+  vm_type: large
   network: default
