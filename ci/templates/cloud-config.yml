@@ -35,7 +35,7 @@ networks:
   - range: ((bosh_cidr))
     gateway: ((bosh_internal_gw))
     azs: [dc1_z1, dc2_z1]
-    dns: [((bosh_dns))]
+    dns: ((bosh_dns))
     reserved: [((bosh_network_reserved))]
     cloud_properties:
       name: ((bosh_vcenter_network_name))
