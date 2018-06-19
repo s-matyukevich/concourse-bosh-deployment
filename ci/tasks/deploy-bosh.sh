@@ -19,6 +19,7 @@ if ! bosh create-env bosh-deployment/bosh.yml \
     --state=state.json \
     --vars-store=creds.yml \
     -o bosh-deployment/vsphere/cpi.yml \
+    -o bosh-deployment/misc/dns.yml \
     -o bosh-deployment/uaa.yml \
     -o concourse-bosh-deployment/ci/opfiles/external-ip.yml \
     -o concourse-bosh-deployment/ci/opfiles/set_vm_password.yml \
@@ -27,6 +28,7 @@ if ! bosh create-env bosh-deployment/bosh.yml \
     -v internal_cidr=$BOSH_CIDR \
     -v internal_gw=$BOSH_INTERNAL_GW \
     -v internal_ip=$BOSH_INTERNAL_IP \
+    -v internal_dns=$BOSH_DNS \
     -v external_ip=$BOSH_EXTERNAL_IP \
     -v network_name=$BOSH_VCENTER_NETWORK_NAME \
     -v vcenter_dc=$VCENTER_DC1_DATACENTER \
@@ -50,5 +52,4 @@ if [ "$error" = true ] ; then
 	exit 1
 fi
 
-# debug
-exit 1
+
