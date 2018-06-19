@@ -14,7 +14,7 @@ vm_types:
 - name: default
   cloud_properties:
     cpu: 2
-    ram: 2046
+    ram: 2048
     disk: 10000 
 - name: large
   cloud_properties:
