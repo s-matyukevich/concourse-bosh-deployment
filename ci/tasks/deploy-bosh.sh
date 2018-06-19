@@ -19,8 +19,8 @@ if ! bosh create-env bosh-deployment/bosh.yml \
     --state=state.json \
     --vars-store=creds.yml \
     -o bosh-deployment/vsphere/cpi.yml \
-    -o bosh-deployment/misc/dns.yml \
     -o bosh-deployment/uaa.yml \
+    -o concourse-bosh-deployment/ci/opfiles/dns.yml \
     -o concourse-bosh-deployment/ci/opfiles/external-ip.yml \
     -o concourse-bosh-deployment/ci/opfiles/set_vm_password.yml \
     -v vm_password=$bosh_vm_password \
