@@ -29,7 +29,7 @@ disk_types:
   disk_size: 50_000
 
 networks:
-- name: default_dc1
+- name: default
   type: manual
   subnets:
   - range: ((bosh_cidr))

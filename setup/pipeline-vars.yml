@@ -22,7 +22,7 @@ bosh_external_ip: 10.126.190.7
 
 bosh_cidr: 192.168.10.0/26
 bosh_internal_gw: 192.168.10.1
-bosh_dns: 10.126.168.150, 10.126.168.151
+bosh_dns: "[10.126.168.150, 10.126.168.151]"
 bosh_network_reserved: 192.168.10.1-192.168.10.20
 bosh_vcenter_network_name: vxw-dvs-11-universalwire-154-sid-60010-us07-6-pcf1-infra
 
