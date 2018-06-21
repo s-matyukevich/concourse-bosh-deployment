@@ -29,10 +29,10 @@ if ! bosh create-env bosh-deployment/bosh.yml \
     -v director_name=$director_name \
     -v internal_cidr=$BOSH_CIDR_DC1 \
     -v internal_gw=$BOSH_INTERNAL_GW_DC1 \
-    -v internal_ip=$BOSH_INTERNAL_IP_DC1 \
     -v internal_dns=$BOSH_DNS_DC1 \
+    -v network_name=$BOSH_VCENTER_NETWORK_NAME_DC1 \
+    -v internal_ip=$BOSH_INTERNAL_IP \
     -v external_ip=$BOSH_EXTERNAL_IP \
-    -v network_name=$BOSH_VCENTER_NETWORK_NAME \
     -v vcenter_dc=$VCENTER_DC1_DATACENTER \
     -v vcenter_ds=$VCENTER_DC1_DATASTORE \
     -v vcenter_ip=$VCENTER_DC1_IP \
