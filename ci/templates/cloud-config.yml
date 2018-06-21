@@ -29,16 +29,26 @@ disk_types:
   disk_size: 50_000
 
 networks:
-- name: default
+- name: default_dc1
   type: manual
   subnets:
-  - range: ((bosh_cidr))
-    gateway: ((bosh_internal_gw))
-    azs: [dc1_z1, dc2_z1]
-    dns: ((bosh_dns))
-    reserved: [((bosh_network_reserved))]
+  - range: ((bosh_cidr_dc1))
+    gateway: ((bosh_internal_gw_dc1))
+    azs: [dc1_z1]
+    dns: ((bosh_dns_dc1))
+    reserved: [((bosh_network_reserved_dc1))]
     cloud_properties:
-      name: ((bosh_vcenter_network_name))
+      name: ((bosh_vcenter_network_name_dc1))
+- name: default_dc2
+  type: manual
+  subnets:
+  - range: ((bosh_cidr_dc2))
+    gateway: ((bosh_internal_gw_dc2))
+    azs: [dc2_z1]
+    dns: ((bosh_dns_dc2))
+    reserved: [((bosh_network_reserved_dc1))]
+    cloud_properties:
+      name: ((bosh_vcenter_network_name_dc1))
 
 compilation:
   workers: 5

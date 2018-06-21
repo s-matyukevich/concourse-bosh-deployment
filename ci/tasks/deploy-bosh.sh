@@ -27,10 +27,10 @@ if ! bosh create-env bosh-deployment/bosh.yml \
     -o concourse-bosh-deployment/ci/opfiles/set_vm_password.yml \
     -v vm_password=$bosh_vm_password \
     -v director_name=$director_name \
-    -v internal_cidr=$BOSH_CIDR \
-    -v internal_gw=$BOSH_INTERNAL_GW \
-    -v internal_ip=$BOSH_INTERNAL_IP \
-    -v internal_dns=$BOSH_DNS \
+    -v internal_cidr=$BOSH_CIDR_DC1 \
+    -v internal_gw=$BOSH_INTERNAL_GW_DC1 \
+    -v internal_ip=$BOSH_INTERNAL_IP_DC1 \
+    -v internal_dns=$BOSH_DNS_DC1 \
     -v external_ip=$BOSH_EXTERNAL_IP \
     -v network_name=$BOSH_VCENTER_NETWORK_NAME \
     -v vcenter_dc=$VCENTER_DC1_DATACENTER \

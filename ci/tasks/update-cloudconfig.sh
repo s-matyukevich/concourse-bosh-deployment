@@ -17,11 +17,16 @@ vault write /concourse/$CONCOURSE_TEAM/bosh_environment value=$BOSH_ENVIRONMENT
 bosh interpolate concourse-bosh-deployment/ci/templates/cloud-config.yml \
   -v vcenter_dc1_cluster1=$VCENTER_DC1_CLUSTER1 \
   -v vcenter_dc2_cluster1=$VCENTER_DC2_CLUSTER1 \
-  -v bosh_cidr=$BOSH_CIDR \
-  -v bosh_internal_gw=$BOSH_INTERNAL_GW \
-  -v bosh_dns="$BOSH_DNS" \
-  -v bosh_network_reserved="$BOSH_NETWORK_RESERVED" \
-  -v bosh_vcenter_network_name=$BOSH_VCENTER_NETWORK_NAME > cc.yml
+  -v bosh_cidr_dc1=$BOSH_CIDR_DC1 \
+  -v bosh_internal_gw_dc1=$BOSH_INTERNAL_GW_DC1 \
+  -v bosh_dns_dc1="$BOSH_DNS_DC1" \
+  -v bosh_network_reserved_dc1="$BOSH_NETWORK_RESERVED_DC1" \
+  -v bosh_vcenter_network_name_dc1=$BOSH_VCENTER_NETWORK_NAME_DC1 \
+  -v bosh_cidr_dc2=$BOSH_CIDR_DC2 \
+  -v bosh_internal_gw_dc2=$BOSH_INTERNAL_GW_DC2 \
+  -v bosh_dns_dc2="$BOSH_DNS_DC2" \
+  -v bosh_network_reserved_dc2="$BOSH_NETWORK_RESERVED_DC2" \
+  -v bosh_vcenter_network_name_dc2=$BOSH_VCENTER_NETWORK_NAME_DC2 > cc.yml
 
 director_name=bosh-$CONCOURSE_TEAM
 
