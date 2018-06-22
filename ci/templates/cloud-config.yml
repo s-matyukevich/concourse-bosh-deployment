@@ -57,4 +57,4 @@ compilation:
   reuse_compilation_vms: true
   az: dc1_z1
   vm_type: large
-  network: default
+  network: default_dc1
