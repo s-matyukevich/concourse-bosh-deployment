@@ -47,10 +47,10 @@ networks:
     gateway: ((bosh_internal_gw_dc2))
     azs: [dc2_z1]
     dns: ((bosh_dns_dc2))
-    reserved: ((bosh_network_reserved_dc1))
+    reserved: ((bosh_network_reserved_dc2))
     static: ((bosh_network_static_dc2))
     cloud_properties:
-      name: ((bosh_vcenter_network_name_dc1))
+      name: ((bosh_vcenter_network_name_dc2))
 
 compilation:
   workers: 5
