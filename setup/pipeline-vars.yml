@@ -24,14 +24,14 @@ bosh_cidr_dc1: 192.168.10.0/26
 bosh_internal_gw_dc1: 192.168.10.1
 bosh_dns_dc1: "[10.126.168.150,10.126.168.151]"
 bosh_network_reserved_dc1: "192.168.10.1-192.168.10.20,192.168.10.40-192.168.10.63"
-bosh_network_reserved_dc1: "192.168.10.21-192.168.10.25"
+bosh_network_static_dc1: "192.168.10.21-192.168.10.25"
 bosh_vcenter_network_name_dc1: vxw-dvs-11-universalwire-154-sid-60010-us07-6-pcf1-infra
 
 bosh_cidr_dc2: 192.168.10.0/26
 bosh_internal_gw_dc2: 192.168.10.1
 bosh_dns_dc2: "[10.126.168.150,10.126.168.151]"
 bosh_network_reserved_dc2: 192.168.10.1-192.168.10.40
-bosh_network_reserved_dc1: "192.168.10.41-192.168.10.45"
+bosh_network_static_dc2: "192.168.10.41-192.168.10.45"
 bosh_vcenter_network_name_dc2: vxw-dvs-11-universalwire-154-sid-60010-us07-6-pcf1-infra
 
 vm_password: password
