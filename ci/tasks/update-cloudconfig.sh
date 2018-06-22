@@ -21,11 +21,13 @@ bosh interpolate concourse-bosh-deployment/ci/templates/cloud-config.yml \
   -v bosh_internal_gw_dc1=$BOSH_INTERNAL_GW_DC1 \
   -v bosh_dns_dc1="$BOSH_DNS_DC1" \
   -v bosh_network_reserved_dc1="$BOSH_NETWORK_RESERVED_DC1" \
+  -v bosh_network_static_dc1="$BOSH_NETWORK_STATIC_DC1" \
   -v bosh_vcenter_network_name_dc1=$BOSH_VCENTER_NETWORK_NAME_DC1 \
   -v bosh_cidr_dc2=$BOSH_CIDR_DC2 \
   -v bosh_internal_gw_dc2=$BOSH_INTERNAL_GW_DC2 \
   -v bosh_dns_dc2="$BOSH_DNS_DC2" \
   -v bosh_network_reserved_dc2="$BOSH_NETWORK_RESERVED_DC2" \
+  -v bosh_network_static_dc2="$BOSH_NETWORK_STATIC_DC2" \
   -v bosh_vcenter_network_name_dc2=$BOSH_VCENTER_NETWORK_NAME_DC2 > cc.yml
 
 director_name=bosh-$CONCOURSE_TEAM
