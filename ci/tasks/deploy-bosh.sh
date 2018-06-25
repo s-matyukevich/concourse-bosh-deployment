@@ -23,7 +23,6 @@ if ! bosh create-env bosh-deployment/bosh.yml \
     -o bosh-deployment/credhub.yml \
     -o bosh-deployment/misc/config-server.yml \
     -o concourse-bosh-deployment/ci/opfiles/dns.yml \
-    -o concourse-bosh-deployment/ci/opfiles/external-ip.yml \
     -o concourse-bosh-deployment/ci/opfiles/set_vm_password.yml \
     -v vm_password=$bosh_vm_password \
     -v director_name=$director_name \
@@ -32,7 +31,6 @@ if ! bosh create-env bosh-deployment/bosh.yml \
     -v internal_dns=$BOSH_DNS_DC1 \
     -v network_name=$BOSH_VCENTER_NETWORK_NAME_DC1 \
     -v internal_ip=$BOSH_INTERNAL_IP \
-    -v external_ip=$BOSH_EXTERNAL_IP \
     -v vcenter_dc=$VCENTER_DC1_DATACENTER \
     -v vcenter_ds=$VCENTER_DC1_DATASTORE \
     -v vcenter_ip=$VCENTER_DC1_IP \

@@ -3,35 +3,34 @@ concourse_team: sandbox-pcf1
 vault-addr: https://us07-1-cc2.oc.vmware.com:8200
 vault-token: ((vault_token))
 
-vcenter_dc1_ip: us07-6-vc1.oc.vmware.com
-vcenter_dc1_user: svc.us07-6_pcf@vmware.com
-vcenter_dc1_password: ((vcenter_pwd))
-vcenter_dc1_datacenter: us07vcore6vc1
-vcenter_dc1_datastore: us07vcore6vc1c1vsan
-vcenter_dc1_cluster1: us07vcore6vc1c1
+vcenter_dc1_ip: us07-5-vc1.oc.vmware.com
+vcenter_dc1_user: svc.us07-5_pcf@vmware.com
+vcenter_dc1_password: ((vcenter1_pwd))
+vcenter_dc1_datacenter: us07vcore5vc1
+vcenter_dc1_datastore: us07vcore5vc1c1vsan
+vcenter_dc1_cluster1: us07vcore5vc1c1
 
-vcenter_dc2_ip: us07-6-vc1.oc.vmware.com
-vcenter_dc2_user: svc.us07-6_pcf@vmware.com
-vcenter_dc2_password: ((vcenter_pwd))
-vcenter_dc2_datacenter: us07vcore6vc1
-vcenter_dc2_datastore: us07vcore6vc1c1vsan
-vcenter_dc2_cluster1: us07vcore6vc1c1
+vcenter_dc2_ip: us22-2-vc1.oc.vmware.com
+vcenter_dc2_user: svc.us22-2_pcf@vmware.com
+vcenter_dc2_password: ((vcenter2_pwd))
+vcenter_dc2_datacenter: us22vcore2vc1
+vcenter_dc2_datastore: us22-2-vsan-vc1c1
+vcenter_dc2_cluster1: us22vcore2vc1c1
 
-bosh_internal_ip: 192.168.10.20
-bosh_external_ip: 10.126.190.7
+bosh_internal_ip: 10.191.9.128
 
-bosh_cidr_dc1: 192.168.10.0/26
-bosh_internal_gw_dc1: 192.168.10.1
+bosh_cidr_dc1: 10.191.9.128/25 
+bosh_internal_gw_dc1: 10.191.9.254
 bosh_dns_dc1: "[10.126.168.150,10.126.168.151]"
-bosh_network_reserved_dc1: "[192.168.10.1-192.168.10.20,192.168.10.40-192.168.10.63]"
-bosh_network_static_dc1: "[192.168.10.21-192.168.10.25]"
-bosh_vcenter_network_name_dc1: vxw-dvs-11-universalwire-154-sid-60010-us07-6-pcf1-infra
+bosh_network_reserved_dc1: "[10.191.9.128,10.191.9.254]"
+bosh_network_static_dc1: "[10.191.9.129-10.191.9.135"
+bosh_vcenter_network_name_dc1: vxw-dvs-13-universalwire-44-sid-50027-us07-5-pcf4-bosh-services
 
-bosh_cidr_dc2: 192.168.10.0/26
-bosh_internal_gw_dc2: 192.168.10.1
-bosh_dns_dc2: "[10.126.168.150,10.126.168.151]"
-bosh_network_reserved_dc2: "[192.168.10.1-192.168.10.40]"
-bosh_network_static_dc2: "[192.168.10.41-192.168.10.45]"
-bosh_vcenter_network_name_dc2: vxw-dvs-11-universalwire-154-sid-60010-us07-6-pcf1-infra
+bosh_cidr_dc2: 10.165.19.128/25
+bosh_internal_gw_dc2: 10.165.19.254
+bosh_dns_dc2: "[10.165.8.131,10.165.8.132]"
+bosh_network_reserved_dc2: "[10.165.19.254]"
+bosh_network_static_dc2: "[10.165.19.128-10.165.19.135]"
+bosh_vcenter_network_name_dc2: vxw-dvs-13-universalwire-88-sid-20012-us22-2-pcf4-bosh-services
 
 vm_password: password
