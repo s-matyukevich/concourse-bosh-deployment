@@ -6,7 +6,7 @@ yaml2json < creds.yml > creds.json
 export BOSH_CLIENT=admin
 export BOSH_CLIENT_SECRET=$(cat creds.json  | jq -r ".admin_password")
 export BOSH_CA_CERT=$(cat creds.json  | jq -r ".default_ca.ca")
-export BOSH_ENVIRONMENT=$BOSH_EXTERNAL_IP
+export BOSH_ENVIRONMENT=$BOSH_INTERNAL_IP
 
 #save creds for next pipelines
 vault write /concourse/$CONCOURSE_TEAM/bosh_client value=$BOSH_CLIENT 

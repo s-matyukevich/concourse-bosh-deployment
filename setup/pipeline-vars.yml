@@ -23,7 +23,7 @@ bosh_cidr_dc1: 10.191.9.128/25
 bosh_internal_gw_dc1: 10.191.9.254
 bosh_dns_dc1: "[10.126.168.150,10.126.168.151]"
 bosh_network_reserved_dc1: "[10.191.9.128,10.191.9.254]"
-bosh_network_static_dc1: "[10.191.9.129-10.191.9.135"
+bosh_network_static_dc1: "[10.191.9.129-10.191.9.135]"
 bosh_vcenter_network_name_dc1: vxw-dvs-13-universalwire-44-sid-50027-us07-5-pcf4-bosh-services
 
 bosh_cidr_dc2: 10.165.19.128/25
